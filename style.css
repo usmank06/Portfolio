@@ -20,7 +20,13 @@ body {
     align-items: center;
     opacity: 0;
     animation: fadeInPage 0.8s ease-out forwards;
-    cursor: none;
+}
+
+/* Hide cursor only on desktop devices */
+@media (min-width: 769px) {
+    body {
+        cursor: none;
+    }
 }
 
 /* Page load animation */
@@ -1065,13 +1071,14 @@ a, button, .nav-button, .social-icon, .action-btn, .contact-link, .fancy-item {
 
 /* Ultra-light mode for very low-end devices */
 @media (max-width: 480px) {
-    * {
+    /* Disable complex animations but keep essential page load animations */
+    .float, .fancy-item, .social-icon {
         animation: none !important;
-        transition: opacity 0.2s ease, transform 0.2s ease !important;
     }
     
-    .nav-button, .social-icon, .action-btn {
-        transition: background-color 0.2s ease, color 0.2s ease !important;
+    /* Simplify transitions for performance */
+    .nav-button, .social-icon, .action-btn, .floating-card, #wrapper {
+        transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
     }
 }
 
@@ -1096,9 +1103,6 @@ a, button, .nav-button, .social-icon, .action-btn, .contact-link, .fancy-item {
         animation: none;
     }
     
-
-}
-    
     /* Disable hover effects on mobile */
     #wrapper:hover {
         transform: none;
@@ -1122,9 +1126,7 @@ a, button, .nav-button, .social-icon, .action-btn, .contact-link, .fancy-item {
     .profile-image {
         transform: scale(1) !important;
     }
-
-
-
+}
 
 /* Focus styles for accessibility */
 .nav-button:focus,
@@ -1169,23 +1171,6 @@ a, button, .nav-button, .social-icon, .action-btn, .contact-link, .fancy-item {
 
     .copyright p {
         font-size: 0.7rem;
-    }
-}
-
-/* Custom Cursor Styles */
-.cursor {
-    pointer-events: none;
-    
-    &__ball {
-        position: fixed;
-        top: 0;
-        left: 0;
-        mix-blend-mode: difference;
-        z-index: 1000;
-        
-        circle {
-            fill: #f7f8fa;
-        }
     }
 }
 
