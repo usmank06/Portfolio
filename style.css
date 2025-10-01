@@ -1277,8 +1277,21 @@ a, button, .nav-button, .social-icon, .action-btn, .contact-link, .fancy-item {
     left: 0;
     mix-blend-mode: difference;
     z-index: 10001;
+    /* Prevent cursor from causing overflow */
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 .cursor__ball circle {
     fill: #393638;
+}
+
+/* Prevent horizontal and vertical overflow caused by animations and effects */
+body {
+    overflow: hidden;
+}
+
+html {
+    overflow: hidden;
 }
