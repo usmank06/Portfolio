@@ -824,6 +824,31 @@ header p a:hover {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) and (min-width: 769px) {
+    /* Tablet styles - keep image visible */
+    body {
+        padding: 0.5rem;
+    }
+
+    #wrapper {
+        max-width: calc(100vw - 1rem);
+        min-height: 400px;
+    }
+
+    .content-section {
+        padding: 1.75rem;
+    }
+
+    .floating-card {
+        padding: 1.75rem 1.25rem;
+        max-width: 350px;
+    }
+
+    header h1 {
+        font-size: 1.75rem;
+    }
+}
+
 @media (max-width: 1024px) {
     body {
         padding: 0.35rem;
@@ -856,37 +881,77 @@ header p a:hover {
     }
 
     .image-section {
-        height: 35vh;
-        min-height: 140px;
-        max-height: 210px;
+        display: none; /* Hide image on mobile */
     }
 
     .content-section {
-        padding: 1.05rem;
+        padding: 2rem 1.05rem; /* Increase padding when image is hidden */
+        justify-content: center;
+        min-height: auto;
     }
 
     .floating-card {
-        padding: 1.4rem 1.05rem;
+        padding: 2rem 1.5rem;
+        max-width: 100%; /* Allow card to use full width */
+        width: 100%;
+        box-shadow: 0 8px 25px rgba(57, 54, 56, 0.1); /* Lighter shadow for mobile */
     }
 
     header h1 {
-        font-size: 1.26rem;
-        margin-bottom: 0.7rem;
+        font-size: 1.4rem; /* Slightly larger for better readability */
+        margin-bottom: 1rem;
+        letter-spacing: 0.15em;
     }
 
     header p {
-        font-size: 0.63rem;
-        margin-bottom: 1.75rem;
+        font-size: 0.7rem; /* Slightly larger for better readability */
+        margin-bottom: 2rem;
+        line-height: 1.8;
+    }
+
+    .main-nav {
+        gap: 0.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .nav-button {
+        padding: 1rem 1.5rem; /* Better touch targets */
+        font-size: 0.7rem;
+        min-height: 48px; /* Minimum touch target size */
+    }
+
+    .social-icons {
+        gap: 1.2rem;
+        margin-top: 1rem;
+    }
+
+    .social-icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.5rem;
     }
 
     .popup-card {
-        padding: 1.05rem;
+        padding: 1.5rem 1rem;
         width: 95%;
         margin: 0.7rem;
     }
 
+    .popup-content {
+        margin: 0.5rem; /* Add margin so text doesn't touch edges */
+    }
+
     .popup-content h2 {
-        font-size: 1.05rem;
+        font-size: 0.95rem; /* Smaller title for mobile */
+    }
+
+    .popup-content h3 {
+        font-size: 0.75rem; /* Smaller headings */
+    }
+
+    .popup-content p {
+        font-size: 0.7rem; /* Smaller paragraph text */
+        line-height: 1.5;
     }
 
     .fancy-item {
@@ -912,48 +977,81 @@ header p a:hover {
     }
 
     .image-section {
-        height: 30vh;
-        min-height: 126px;
-        max-height: 175px;
+        display: none; /* Hide image on small mobile devices too */
     }
 
     .content-section {
-        padding: 0.7rem;
+        padding: 1.5rem 0.7rem; /* Better padding for small screens */
+        justify-content: center;
     }
 
     .floating-card {
-        padding: 1.05rem 0.7rem;
+        padding: 1.5rem 1rem;
+        max-width: 100%;
+        width: 100%;
+        margin: 0; /* Remove any margins */
+        box-shadow: 0 4px 15px rgba(57, 54, 56, 0.1);
     }
 
     header h1 {
-        font-size: 0.98rem;
-        letter-spacing: 0.105em;
-        margin-bottom: 0.56rem;
+        font-size: 1.1rem; /* Larger for better readability */
+        letter-spacing: 0.12em;
+        margin-bottom: 0.8rem;
     }
 
     header p {
-        font-size: 0.595rem;
-        margin-bottom: 1.4rem;
+        font-size: 0.65rem; /* Slightly larger */
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
     }
 
     .main-nav {
-        gap: 0.56rem;
-        margin-bottom: 1.4rem;
+        gap: 0.7rem;
+        margin-bottom: 1.5rem;
     }
 
     .nav-button {
-        padding: 0.56rem 1.05rem;
-        font-size: 0.525rem;
+        padding: 0.8rem 1.2rem; /* Better touch targets */
+        font-size: 0.6rem;
+        min-height: 44px; /* Minimum touch target for small screens */
+    }
+
+    .social-icons {
+        gap: 1rem;
+    }
+
+    .social-icon {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.3rem;
     }
 
     .popup-card {
-        padding: 0.7rem;
+        padding: 1rem 0.8rem;
         margin: 0.35rem;
         width: calc(100% - 0.7rem);
     }
 
+    .popup-content {
+        margin: 0.4rem; /* Add margin for small screens */
+    }
+
     .popup-content h2 {
-        font-size: 0.91rem;
+        font-size: 0.85rem; /* Smaller for small mobile */
+    }
+
+    .popup-content h3 {
+        font-size: 0.7rem; /* Smaller headings for small mobile */
+    }
+
+    .popup-content p {
+        font-size: 0.65rem; /* Smaller text for small mobile */
+        line-height: 1.4;
+    }
+
+    .popup-content li {
+        font-size: 0.65rem; /* Smaller list items */
+        line-height: 1.4;
     }
 
     .email-item {
