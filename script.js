@@ -155,13 +155,19 @@ document.addEventListener('DOMContentLoaded', function() {
         // Move the cursor
         function onMouseMove(e) {
             if (typeof TweenMax !== 'undefined') {
+                // Constrain cursor position within viewport bounds
+                const maxX = window.innerWidth - 30;
+                const maxY = window.innerHeight - 30;
+                const constrainedX = Math.min(Math.max(e.clientX - 15, 0), maxX);
+                const constrainedY = Math.min(Math.max(e.clientY - 15, 0), maxY);
+                
                 TweenMax.to($bigBall, .4, {
-                    x: e.pageX - 15,
-                    y: e.pageY - 15
+                    x: constrainedX,
+                    y: constrainedY
                 });
                 TweenMax.to($smallBall, .1, {
-                    x: e.pageX - 5,
-                    y: e.pageY - 7
+                    x: Math.min(Math.max(e.clientX - 5, 0), window.innerWidth - 10),
+                    y: Math.min(Math.max(e.clientY - 7, 0), window.innerHeight - 10)
                 });
             }
         }
