@@ -2,228 +2,127 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usman Khan</title>
-    <link rel="icon" href="logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-
-    <meta name="description" content="Usman Khan — CS & Mathematics @ UTA. Research, projects, and student leadership.">
-    <meta property="og:title" content="Usman Khan">
-    <meta property="og:description" content="CS & Mathematics @ UTA — research, projects, organizations.">
-    <meta name="twitter:card" content="summary">
-
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💸</text></svg>">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <!-- Custom Cursor -->
-    <div class="cursor">
-        <div class="cursor__ball cursor__ball--big">
-            <svg height="30" width="30">
-                <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
-            </svg>
+<body class="bg-white text-gray-900">
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#home" class="profile-avatar">
+                    <img src="Image.jpg" alt="Usman Khan" class="avatar-img">
+                </a>
+                <nav class="nav-pills">
+                    <a href="#work" class="nav-pill">Work</a>
+                    <a href="#next" class="nav-pill">Next</a>
+                    <a href="#contact" class="nav-pill">Contact</a>
+                </nav>
+            </div>
         </div>
-        
-        <div class="cursor__ball cursor__ball--small">
-            <svg height="10" width="10">
-                <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
-            </svg>
-        </div>
-    </div>
+    </header>
 
-    <div id="wrapper">
-        <div class="image-section">
-            <img src="background.png" alt="Cover Image" class="profile-image">
-        </div>
-
-        <div class="content-section">
-            <div class="floating-card">
-                <div class="inner">
-                    <header>
-                        <h1>Usman Khan</h1>
-                        <p>
-                            Computer Science & Mathematics Student<br>
-                            University of Texas at Arlington<br>
-                            <span class="email-divider">—</span><br>
-                            <a href="mailto:muk1753@mavs.uta.edu" class="hoverable">muk1753@mavs.uta.edu</a>
-                            <a href="mailto:usmankhan.06@outlook.com" class="hoverable">usmankhan.06@outlook.com</a>
-                        </p>
-                    </header>
-
-                    <nav class="main-nav">
-                        <button class="nav-button hoverable" data-popup="about">ABOUT</button>
-                        <button class="nav-button hoverable" data-popup="research">RESEARCH</button>
-                        <button class="nav-button hoverable" data-popup="projects">PROJECTS</button>
-                        <button class="nav-button hoverable" data-popup="organizations">ORGANIZATIONS</button>
-                    </nav>
-
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/usmankhan06/" class="social-icon hoverable" target="_blank" rel="noopener">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/usmank06" class="social-icon hoverable" target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.instagram.com/06.usman" class="social-icon hoverable" target="_blank" rel="noopener">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="mailto:usmankhan.06@outlook.com" class="social-icon hoverable">
-                            <i class="fas fa-envelope"></i>
-                        </a>
+    <main class="main-content">
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-wrapper">
+                    <div class="hero-content-wrapper">
+                        <h1 class="hero-title">Hey, I'm Usman.</h1>
+                        <div class="hero-subtitle-group">
+                            <p class="hero-subtitle">I'm a CS + Math student at UTA who loves building real-world projects. I specialize in backend and internal tooling for business operations and infrastructure, but I can work on pretty much anything.</p>
+                            <p class="hero-description">I've built multiple projects that generated real revenue, with one reaching $7K MRR and spikes up to $15K. My specialty is making things happen, taking an idea from concept to production efficiently. Now I'm looking for opportunities this summer to contribute and grow my skills.</p>
+                        </div>
+                    </div>
+                    <div class="business-card-container">
+                        <div class="business-card">
+                            <div class="card-face card-front">
+                                <img src="1.png" alt="Business Card Front">
+                            </div>
+                            <div class="card-face card-back">
+                                <img src="2.png" alt="Business Card Back">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <footer class="copyright">
-        <p>Usman Khan - Inspired by <a href="https://pixelarity.com/indivisible" class="hoverable" target="_blank">Pixelarity</a> - Built by <a href="https://www.anthropic.com/claude" class="hoverable" target="_blank">Claude</a> with <a href="https://same.new" class="hoverable" target="_blank">Same</a></p>
+        <section id="work" class="content-section">
+            <div class="container">
+                <div class="max-w-4xl">
+                    <h2 class="section-heading">What I've Built</h2>
+                    <div class="text-content">
+                        <p>I've built infrastructure and backend-heavy platforms that have served real users and generated real revenue. I've also built many side projects and freelanced for numerous clients.</p>
+                        <p>Along the way, I've developed skills in internal tooling, automation, data handling, web scraping, API development, and more. I've created customer portals, backend business tools, customer support automation, server monitoring systems, and everything else a business needs to thrive.</p>
+                        <p><strong>My main project:</strong></p>
+                        <ul class="bullet-list">
+                            <li>Built backend infrastructure to support over 3,000 paying customers</li>
+                            <li>Handled hundreds of requests per second with consistent reliability</li>
+                            <li>Processed tens of thousands in revenue through automated billing systems</li>
+                            <li>Scaled from zero to $7K MRR with spikes reaching $15K in one year</li>
+                            <li>Built monitoring, alerting, and admin tools to keep everything running smoothly</li>
+                        </ul>
+                        <p>Smaller public projects are available on my <a href="https://github.com/usmank06" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="approach" class="content-section">
+            <div class="container">
+                <div class="max-w-4xl">
+                    <h2 class="section-heading">How I Think About Building</h2>
+                    <div class="text-content">
+                        <p>I live and breathe efficiency. I love optimizing programs, reducing overhead, lowering costs, increasing revenue, and building systems that last. I try to make a real impact with everything I do, whether that's generating revenue or solving real problems for people.</p>
+                        <p>I'm comfortable taking on medium-sized projects end-to-end: planning, development, testing, and deployment. I can build reliable dashboards, APIs, enhance existing systems, integrate AI into workflows, and more.</p>
+                        <p>I'm looking to work with teams where I can take ownership of projects and deliver significant outcomes while learning and growing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="next" class="content-section">
+            <div class="container">
+                <div class="max-w-4xl">
+                    <h2 class="section-heading">What's Next</h2>
+                    <div class="text-content">
+                        <p>I'm looking for a summer role (with potential to extend) at a small to medium-sized business, preferably in the DFW area, where I can make a real impact.</p>
+                        <p>I'm very hands-on and excel at communication, constantly sharing updates and collaborating with my team. I do my best work on projects I care about, and I'm always looking for ways to improve and grow.</p>
+                        <p>If you think I could help with what you're building, or if you have any leads, I'd love to hear from you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <div class="container">
+                <div class="max-w-4xl">
+                    <h2 class="section-heading">Get In Touch</h2>
+                    <div class="text-content">
+                        <p>I'm always happy to chat with founders, engineers, or anyone building something interesting.</p>
+                        <div class="contact-links">
+                            <div class="contact-item">
+                                <a href="mailto:hello@usmankhan.io" class="contact-link">hello@usmankhan.io</a>
+                            </div>
+                            <div class="contact-item">
+                                <a href="https://linkedin.com/in/usmankhan06" target="_blank" rel="noopener noreferrer" class="contact-link">linkedin.com/in/usmankhan06</a>
+                            </div>
+                            <div class="contact-item">
+                                <a href="https://github.com/usmank06" target="_blank" rel="noopener noreferrer" class="contact-link">github.com/usmank06</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">Design inspired by <a href="https://www.alexneto.com/" target="_blank" rel="noopener noreferrer" class="footer-link">Alex Neto</a></p>
+        </div>
     </footer>
-
-    <!-- Popup Modals -->
-    <div id="about-popup" class="popup-overlay">
-        <div class="popup-card">
-            <button class="close-btn hoverable">&times;</button>
-            <div class="popup-content">
-                <h2>Short Bio</h2>
-                <p>I am a student passionate about computer science, mathematics, and building practical technology. My work spans hackathon projects, research in AI, and leadership in student organizations. I enjoy solving problems through code, designing systems that scale, and exploring the intersection of technology and society.</p>
-
-                <h3>Now / Current Focus</h3>
-                <ul>
-                    <li>Currently focusing on academic research, hackathon participation, and preparing for competitive internships in software engineering and machine learning.</li>
-                </ul>
-
-                <h3>Résumé</h3>
-                <ul>
-                    <li>Send an email to <a href="mailto:usmankhan.06@outlook.com" class="hoverable">usmankhan.06@outlook.com</a> for a full résumé!</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div id="research-popup" class="popup-overlay">
-        <div class="popup-card">
-            <button class="close-btn hoverable">&times;</button>
-            <div class="popup-content">
-
-                <h2>Research</h2>
-
-                <div class="section-divider">
-                    <h3>Formal Research</h3>
-                </div>
-
-                <div class="fancy-item">
-                    <div class="item-content">
-                        <h3>AI ChatBots vs Human Interaction — ACM @ UTA Research</h3>
-                        <p>We studied how AI chatbots compare to human interaction for improving user experience. Using a custom GPT-4.1 chatbot on a student platform, we measured usability and satisfaction. Results show chatbots boost efficiency, but human oversight and tailored design are key for trust and effectiveness.</p>
-                        <a href="https://drive.google.com/file/d/1LdddmnYv9b9wjFSnJdF_bgLTvxpj26H3/view?usp=sharing" class="action-btn hoverable" target="_blank" rel="noopener">View Poster</a>
-                    </div>
-                </div>
-
-                <div class="fancy-item">
-                    <div class="item-content">
-                        <h3>Comparing Input Formatting for LLMs — Independent Research</h3>
-                        <p>Research project which has just started, comparing different forms of inputs and their impact on the accuracy of the response.</p>
-                    </div>
-                </div>
-
-                <div class="section-divider">
-                    <h3>Honors Contracts</h3>
-                    <br>
-                    <p>An Honors contract is a student-faculty agreement that adds extra academic depth to a regular course, allowing the student to earn Honors credit by completing additional scholarly work.</p>
-                </div>
-
-                <div class="fancy-item">
-                    <div class="item-content">
-                        <h3>Ongoing: Exploring NP-Complete and Creating a Content Distribution System — CSE 3318</h3>
-                        <p>Researching NP-Complete problems by studying their theoretical foundations, proving reductions for a novel problem, and analyzing approximation strategies. This work will give me deeper insight into the limits of computation while contributing a rigorous technical paper supported by examples and analysis.</p>
-                    </div>
-                </div>
-
-                <div class="fancy-item">
-                    <div class="item-content">
-                        <h3>Ongoing: Exploring Quantum Computing and Modeling Quantum Circuits — CSE 2312</h3>
-                        <p>Exploring quantum computing through structured modules and the implementation of a foundational algorithm in Qiskit. My research will connect theory and practice by analyzing quantum circuits and demonstrating how quantum principles enable new forms of computation.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="projects-popup" class="popup-overlay">
-        <div class="popup-card">
-            <button class="close-btn hoverable">&times;</button>
-            <div class="popup-content">
-                <h2>Projects</h2>
-                <div class="section-subtitle">Hackathon Projects</div>
-
-                <div class="fancy-item">
-                    <div class="item-content">
-                        <h3>Propertunity</h3>
-                        <p>A property management platform with AI-powered chat, analytics, and visualization tools for managers and tenants.</p>
-                        <p><strong>Tech Stack:</strong> Tailwind, Next.js, MongoDB, Google Gemini</p>
-                        <a href="https://devpost.com/software/propertunity" class="action-btn hoverable" target="_blank" rel="noopener">View on Devpost</a>
-                    </div>
-                </div>
-
-                <div class="fancy-item">
-                    <div class="item-content">
-                        <h3>ElevateMe</h3>
-                        <p>A mental health support platform featuring an AI chatbot and resources to aid well-being.</p>
-                        <p><strong>Tech Stack:</strong> Python, Flask, ReactJS, MongoDB, Google Gemini</p>
-                        <a href="https://devpost.com/software/elevateme" class="action-btn hoverable" target="_blank" rel="noopener">View on Devpost</a>
-                    </div>
-                </div>
-
-                <div class="fancy-item">
-                    <div class="item-content">
-                        <h3>Accessibility</h3>
-                        <p>A computer vision tool that detects accessibility logos on vehicles to improve parking enforcement.</p>
-                        <p><strong>Tech Stack:</strong> Python, OpenCV, YOLOv5</p>
-                        <a href="https://devpost.com/software/handiparkhub" class="action-btn hoverable" target="_blank" rel="noopener">View on Devpost</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="organizations-popup" class="popup-overlay">
-        <div class="popup-card">
-            <button class="close-btn hoverable">&times;</button>
-            <div class="popup-content">
-                <h2>Organizations</h2>
-
-                <div class="fancy-item">
-                    <div class="item-content">
-                        <h3>President — Muslim Professionals Association</h3>
-                        <p><strong>Dec 2024 – Present</strong></p>
-                        <p>Transitioned from Event Manager to President, leading and scaling a professional student organization. Directing strategy, board operations, and outreach initiatives that doubled membership and boosted event attendance by 60% through alumni panels and industry speaker events.</p>
-                    </div>
-                </div>
-
-                <div class="fancy-item">
-                    <div class="item-content">
-                        <h3>Event Lead — MavMarket, UTA</h3>
-                        <p><strong>May 2025 – Present</strong></p>
-                        <p>Leading planning and execution of UTA's flagship student marketplace, showcasing 100+ student vendors and facilitating over $60k in revenue per semester. Designed to empower side-hustlers to validate ideas and build businesses.</p>
-                    </div>
-                </div>
-
-                <div class="fancy-item">
-                    <div class="item-content">
-                        <h3>Event Coordinator — Entrepreneurship Club</h3>
-                        <p><strong>Jan 2024 – Present</strong></p>
-                        <p>Coordinating club events and activities while managing funding initiatives and securing sponsorships from multiple companies. Overseeing vendor relationships, supply chain logistics, and maintaining accurate financial records to ensure organizational financial stability.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 
     <script src="script.js"></script>
 </body>

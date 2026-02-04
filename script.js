@@ -1,275 +1,111 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all navigation buttons
-    const navButtons = document.querySelectorAll('.nav-button');
-
-    // Get all popup overlays
-    const popupOverlays = document.querySelectorAll('.popup-overlay');
-
-    // Get all close buttons
-    const closeButtons = document.querySelectorAll('.close-btn');
-
-    // Simplified popup opening for smooth performance
-    function openPopup(popupId) {
-        const popup = document.getElementById(popupId + '-popup');
-        if (popup) {
-            popup.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-    }
-
-    // Simplified popup closing
-    function closePopup(popup) {
-        popup.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-
-    // Function to close all popups
-    function closeAllPopups() {
-        popupOverlays.forEach(popup => {
-            if (popup.classList.contains('active')) {
-                closePopup(popup);
-            }
-        });
-    }
-
-    // Simplified button click events
-    navButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const popupId = this.getAttribute('data-popup');
-            openPopup(popupId);
-        });
-    });
-
-    // Add click event listeners to close buttons
-    closeButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const popup = this.closest('.popup-overlay');
-            closePopup(popup);
-        });
-    });
-
-    // Add click event listeners to overlay backgrounds
-    popupOverlays.forEach(overlay => {
-        overlay.addEventListener('click', function(e) {
-            // Only close if clicking on the overlay itself, not the popup card
-            if (e.target === overlay) {
-                closePopup(overlay);
-            }
-        });
-    });
-
-    // Close popup on Escape key press
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeAllPopups();
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
     });
-
-    // Prevent popup card clicks from closing the popup
-    const popupCards = document.querySelectorAll('.popup-card');
-    popupCards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-    });
-
-    // Add smooth scroll behavior for popup content
-    const popupContents = document.querySelectorAll('.popup-content');
-    popupContents.forEach(content => {
-        content.style.scrollBehavior = 'smooth';
-    });
-
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
-        });
-    }, observerOptions);
-
-    // Observe fancy items for scroll animations
-    setTimeout(() => {
-        const fancyItems = document.querySelectorAll('.fancy-item');
-        fancyItems.forEach(item => {
-            observer.observe(item);
-        });
-    }, 1000);
 });
 
-// Enhanced interactions with requested features
-document.addEventListener('DOMContentLoaded', function() {
-    const isDesktop = window.innerWidth > 1024;
-    const isMobile = window.innerWidth <= 768;
-    const respectsReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const sections = document.querySelectorAll('.content-section, .hero-section');
+const navPills = document.querySelectorAll('.nav-pill');
+
+function updateActiveNav() {
+    let current = '';
     
-    // Loading screen for all devices (unless reduced motion)
-    if (!respectsReducedMotion) {
-        const createLoadingScreen = () => {
-            const loader = document.createElement('div');
-            loader.className = 'loading-screen';
-            loader.innerHTML = `
-                <div class="loader">
-                    <div class="loader-text">USMAN KHAN</div>
-                    <div class="loader-bar">
-                        <div class="loader-progress"></div>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(loader);
-            
-            // Simulate loading
-            let progress = 0;
-            const progressBar = loader.querySelector('.loader-progress');
-            
-            const loadingInterval = setInterval(() => {
-                progress += Math.random() * 15 + 5;
-                if (progress >= 100) {
-                    progress = 100;
-                    clearInterval(loadingInterval);
-                    
-                    setTimeout(() => {
-                        loader.style.opacity = '0';
-                        setTimeout(() => loader.remove(), 500);
-                    }, 500);
-                }
-                progressBar.style.width = progress + '%';
-            }, 80);
-        };
-        
-        createLoadingScreen();
-    }
-
-    // Custom Cursor Implementation
-    const $bigBall = document.querySelector('.cursor__ball--big');
-    const $smallBall = document.querySelector('.cursor__ball--small');
-    const $hoverables = document.querySelectorAll('.hoverable');
-
-    // Only initialize cursor on non-mobile devices
-    if ($bigBall && $smallBall && !isMobile) {
-        // Move the cursor
-        function onMouseMove(e) {
-            if (typeof TweenMax !== 'undefined') {
-                // Constrain cursor position within viewport bounds
-                const maxX = window.innerWidth - 30;
-                const maxY = window.innerHeight - 30;
-                const constrainedX = Math.min(Math.max(e.clientX - 15, 0), maxX);
-                const constrainedY = Math.min(Math.max(e.clientY - 15, 0), maxY);
-                
-                TweenMax.to($bigBall, .4, {
-                    x: constrainedX,
-                    y: constrainedY
-                });
-                TweenMax.to($smallBall, .1, {
-                    x: Math.min(Math.max(e.clientX - 5, 0), window.innerWidth - 10),
-                    y: Math.min(Math.max(e.clientY - 7, 0), window.innerHeight - 10)
-                });
-            }
-        }
-
-        // Hover an element
-        function onMouseHover() {
-            if (typeof TweenMax !== 'undefined') {
-                TweenMax.to($bigBall, .3, {
-                    scale: 2.5
-                });
-            }
-        }
-
-        function onMouseHoverOut() {
-            if (typeof TweenMax !== 'undefined') {
-                TweenMax.to($bigBall, .3, {
-                    scale: 1
-                });
-            }
-        }
-
-        // Add event listeners
-        document.body.addEventListener('mousemove', onMouseMove);
-        
-        // Add hover effects to hoverable elements
-        for (let i = 0; i < $hoverables.length; i++) {
-            $hoverables[i].addEventListener('mouseenter', onMouseHover);
-            $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
-        }
-    } else if (isMobile) {
-        // Hide cursor on mobile and restore default cursor
-        document.body.style.cursor = 'auto';
-        const cursorElement = document.querySelector('.cursor');
-        if (cursorElement) {
-            cursorElement.style.display = 'none';
-        }
-    }
+    const scrolledToBottom = (window.innerHeight + window.pageYOffset) >= document.documentElement.scrollHeight - 100;
     
-    // Desktop-specific effects
-    if (isDesktop && !respectsReducedMotion) {
-        // Subtle parallax effect
-        const profileImage = document.querySelector('.profile-image');
-        let ticking = false;
-        
-        const updateParallax = (e) => {
-            if (!ticking && profileImage) {
-                requestAnimationFrame(() => {
-                    const mouseX = (e.clientX / window.innerWidth - 0.5) * 5;
-                    const mouseY = (e.clientY / window.innerHeight - 0.5) * 5;
-                    profileImage.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        };
-        
-        document.addEventListener('mousemove', updateParallax);
-        
-        // Scroll progress bar
-        const progressBar = document.createElement('div');
-        progressBar.className = 'scroll-progress';
-        document.body.appendChild(progressBar);
-        
-        let scrollTicking = false;
-        window.addEventListener('scroll', () => {
-            if (!scrollTicking) {
-                requestAnimationFrame(() => {
-                    const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-                    progressBar.style.width = Math.min(scrolled, 100) + '%';
-                    scrollTicking = false;
-                });
-                scrollTicking = true;
+    if (scrolledToBottom) {
+        current = 'contact';
+    } else {
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
             }
         });
     }
-    
-    // Floating social icons (all devices unless mobile or reduced motion)
-    if (!isMobile && !respectsReducedMotion) {
-        const socialIcons = document.querySelectorAll('.social-icon');
-        socialIcons.forEach((icon, index) => {
-            icon.style.animationDelay = `${index * 0.2}s`;
-            icon.classList.add('float');
-        });
-    }
-    
-    // Typing animation (desktop and tablet)
-    const headerText = document.querySelector('header h1');
-    if (headerText && !isMobile && !respectsReducedMotion) {
-        const originalText = headerText.textContent;
-        headerText.textContent = '';
-        headerText.style.opacity = '1';
-        
-        setTimeout(() => {
-            let i = 0;
-            const typeWriter = () => {
-                if (i < originalText.length) {
-                    headerText.textContent += originalText[i];
-                    i++;
-                    setTimeout(typeWriter, 80);
-                }
-            };
-            typeWriter();
-        }, 800);
-    }
+
+    navPills.forEach(pill => {
+        pill.classList.remove('active');
+        const href = pill.getAttribute('href').substring(1);
+        if (href === current) {
+            pill.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveNav);
+window.addEventListener('load', updateActiveNav);
+
+const businessCard = document.querySelector('.business-card');
+
+if (businessCard) {
+    businessCard.addEventListener('click', () => {
+        businessCard.classList.toggle('flipped');
+    });
+}
+
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.timeline-item').forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(20px)';
+    item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(item);
 });
+
+document.querySelectorAll('.project-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(card);
+});
+
+const createMobileMenu = () => {
+    const navbar = document.querySelector('.navbar .container');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (window.innerWidth <= 480 && !document.querySelector('.mobile-menu-toggle')) {
+        const menuToggle = document.createElement('button');
+        menuToggle.className = 'mobile-menu-toggle';
+        menuToggle.innerHTML = '☰';
+        menuToggle.style.cssText = 'background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-color);';
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.backgroundColor = 'white';
+                navLinks.style.padding = '1rem';
+                navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            }
+        });
+        
+        navbar.appendChild(menuToggle);
+    }
+};
+
+window.addEventListener('load', createMobileMenu);
+window.addEventListener('resize', createMobileMenu);
